@@ -1,0 +1,31 @@
+{
+  "name": "movies_api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sesethu24/movies_api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sesethu24/movies_api/issues"
+  },
+  "homepage": "https://github.com/Sesethu24/movies_api#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "@alpinejs/persist": "^3.10.2",
+    "alpinejs": "^3.10.2",
+    "everyday-fun": "^1.1.0",
+    "persist": "^0.2.7"
+  }
+}
