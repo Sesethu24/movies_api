@@ -34,7 +34,8 @@
     <button @click="loginFunc()" class="btn btn-primary" type="submit">login</button>
     <h4>Don't have an account yet? Register below</h4>
 
-    <form class="row g-3 needs-validation" novalidate>
+    <div class="row g-3 needs-validation" novalidate>
+      <span x-text="infomessage"></span>
       <div class="col-md-3">
         <label for="validationCustom01" class="form-label">First name</label>
         <input x-model="first_name" type="text" class="form-control" id="inputsm" value="" required>
@@ -67,9 +68,11 @@
       <br>
       <div class="col-12">
         <button @click="signUpFunc()" class="btn btn-primary" type="submit">sign up</button>
+        <hr>
+       
       </div>
 
-    </form>
+    </div>
 
     <div class="movies">
 

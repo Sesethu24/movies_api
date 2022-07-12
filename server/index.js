@@ -19,7 +19,7 @@ const config = {
     process.env.DATABASE_URL || "postgres://coder:coder123@localhost:5432/movie_app",
   };
   
-  if (process.env.NODE_ENV == 'PRODUCTION'){
+  if (process.env.NODE_ENV == 'production'){
     config.ssl = { rejectUnauthorized: false }
   }
   

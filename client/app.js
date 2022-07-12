@@ -1,4 +1,5 @@
 import axios from 'axios';
+const URL_BASE = import.meta.env.VITE_SERVER_URL;
 
 export default function usersFunc() {
 
@@ -16,12 +17,20 @@ export default function usersFunc() {
     allMovies: '',
     // isLoggedIn: false,
     // state: 'LOGIN',
+    
+    init() {
+      setInterval(() => {
+        this.infomessage = ''
+        this.loggedmessage = ''
+    }, 5000)
+    },
+
 
     loginFunc() {
       const { username } = this
 
       axios
-      .post("http://localhost:5000/api/login",{
+      .post(`${URL_BASE}/api/login`,{
         username
       })
        .then(results => {
@@ -35,12 +44,12 @@ export default function usersFunc() {
       const { first_name, last_name, username, password } = this
      
       axios
-        .post("http://localhost:5000/api/signup", {
+        .post(`${URL_BASE}/api/signup`, {
           first_name, last_name, username, password
         })
         .then(results => {
           console.log(results.data);
-          this.infomessage = results.data.status
+          this.infomessage = results.data.error
         })
         .catch(() => {
           console.log(this.message);
@@ -53,7 +62,7 @@ export default function usersFunc() {
       const { movie_list } = this
 
       axios.
-        post("http://localhost:5000/api/playlist",{
+        post(`${URL_BASE}/api/playlist`,{
           movie_list
         })
         .then(results =>{
