@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/movie_api/assets/favicon.17e50649.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script type="module" crossorigin src="/movie_api/assets/index.57524147.js"></script>
+  <link rel="stylesheet" href="/movie_api/assets/index.065c56df.css">
+</head>
+
+<body>
+  <h2>The Movie App</h2>
+
+  <div x-data="login" class="login">
+    <div x-text="loggedmessage"></div>
+    <div class="col-md-3">
+      <label for="validationCustomUser" class="form-label">Username</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <input x-model="username" type="text" class="form-control" 
+          aria-describedby="inputGroupPrependUser" required>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="pwd" class="form-label">Password:</label>
+      <input x-model="password" type="password" class="form-control" id="pwds" placeholder="Enter password" name="pswd"
+        required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <br>
+    <button @click="loginFunc()" class="btn btn-primary" type="submit">login</button>
+    <h4>Don't have an account yet? Register below</h4>
+
+    <div class="row g-3 needs-validation" novalidate>
+      <span x-text="infomessage"></span>
+      <div class="col-md-3">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input x-model="first_name" type="text" class="form-control" id="inputsm" value="" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="col-md-3">
+        <label for="validationCustom02" class="form-label">Last name</label>
+        <input x-model="last_name" type="text" class="form-control" id="validationCustom02" value="" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustomUsername" class="form-label">Username</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrependUsername">@</span>
+          <input x-model="username" type="text" class="form-control" id="validationCustomUsername"
+            aria-describedby="inputGroupPrependUsername" required>
+          <div class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <label for="pwd" class="form-label">Password:</label>
+        <input x-model="password" type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"
+          required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <br>
+      <div class="col-12">
+        <button @click="signUpFunc()" class="btn btn-primary" type="submit">sign up</button>
+        <hr>
+       
+      </div>
+
+    </div>
+
+    <div class="movies">
+
+      <h2>favourite movies:</h2>
+      <input type="search" x-model="allMovies">
+      <button @click="getMovies()">search</button>
+      <template x-for="movie in playlistElement">
+        <div>
+          <div x-text="movie.title"></div>
+          <img x-bind:src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" />
+
+        </div>
+      </template>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  
+
+</body>
+
+</html>
